@@ -23,7 +23,9 @@ class Batfu:
         settings = []
         for line in script:
             for char in line:
-                settings.append(self.obfuscator.create_var(self.obfuscator.dictionary[char], char) + "\n")
+                var = self.obfuscator.create_var(self.obfuscator.dictionary[char], char)
+                if var is not None:
+                    settings.append(var + "\n")
 
         obs = []
         for line in script:
